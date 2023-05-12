@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, FlatList, TouchableHighlight } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ToDoContext } from "../../context/toDoListContext";
-
 import Task from "../../src/components/Task";
 import styles from "./style";
+import NavigateButton from "../../src/components/NavigateButton";
 
 export default function Main() {
   const { tasksList, renderAppFunction } = useContext(ToDoContext);
@@ -24,13 +24,17 @@ export default function Main() {
             Clique em adicionar tarefas para começar.
           </Text>
         ) : (
-          tasksList.map((item, index) => <Task key={index} item={item} />)
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            style={styles.listStyle}
+            data={tasksList.reverse()}
+            renderItem={({ item }) => {
+              return <Task item={item} />;
+            }}
+          ></FlatList>
         )}
       </View>
-      <Button
-        title="Adicionar Tarefas"
-        onPress={() => navigation.navigate("ToDoList")}
-      />
+      <NavigateButton texto="Adicionar tarefas" rota="ToDoList" />
     </View>
   );
 }

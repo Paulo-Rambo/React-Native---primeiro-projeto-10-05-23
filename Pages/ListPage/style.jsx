@@ -27,13 +27,30 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     height: "50%",
-    backgroundColor: "#fff",
+    maxHeight: "60%",
     alignItems: "center",
-    justifyContent: "flex-start",
+    backgroundColor: "#fff",
     borderColor: "#20232a",
     borderRadius: 14,
     borderWidth: 4,
     marginTop: 8,
+  },
+  listStyle: {
+    width: "100%",
+    paddingLeft: 15,
+  },
+  buttonNavigateStyle: {
+    width: "68%",
+    alignItems: "center",
+    backgroundColor: "#48b3ff",
+    padding: 12,
+    borderRadius: 14,
+  },
+  textButton: {
+    fontSize: 24,
+  },
+  buttonView: {
+    alignItems: "center",
   },
 });
 
